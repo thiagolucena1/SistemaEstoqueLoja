@@ -1,0 +1,14 @@
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.AssemblyInfoInputs.cache
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.AssemblyInfo.cs
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.csproj.CoreCompileInputs.cache
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\bin\Debug\net9.0\gerenciamentoEstoque.exe
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\bin\Debug\net9.0\gerenciamentoEstoque.deps.json
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\bin\Debug\net9.0\gerenciamentoEstoque.runtimeconfig.json
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\bin\Debug\net9.0\gerenciamentoEstoque.dll
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\bin\Debug\net9.0\gerenciamentoEstoque.pdb
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.dll
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\refint\gerenciamentoEstoque.dll
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.pdb
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.genruntimeconfig.cache
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\ref\gerenciamentoEstoque.dll
