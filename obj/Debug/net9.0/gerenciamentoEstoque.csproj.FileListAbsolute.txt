@@ -12,3 +12,7 @@ C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\ref
 C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.pdb
 C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.genruntimeconfig.cache
 C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\ref\gerenciamentoEstoque.dll
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.csproj.AssemblyReference.cache
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerenciamentoEstoque.sourcelink.json
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\Thiago\Desktop\thi\projetosC#\gerenciamentoEstoque\obj\Debug\net9.0\gerencia.897B3F43.Up2Date

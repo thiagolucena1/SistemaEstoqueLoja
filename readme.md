@@ -11,6 +11,7 @@ Este projeto simula o dia a dia de um sistema de gerenciamento para lojas de var
 - Listagem dos produtos cadastrados.
 - Remoção via ID
 - Edição do nome e produto
+- Serialização das informações do produto em um codigo JSON. 
 
 
 ## Importante 
@@ -19,5 +20,6 @@ A maioria das interações são realizadas via **ID**. Cada produto contém o se
 
 ## Futuras atualizações do codigo. 
 
-- Serialização dos produtos em um arquivo JSON , permitindo a permanência dos arquivos mesmo após o encerramento do programa. 
+- ~~Serialização dos produtos em um arquivo JSON , permitindo a permanência dos arquivos mesmo após o encerramento do programa.~~ **Implementado**
+- Após a chamada da função RemoverProduto( ) , o codigo deverá excluir da base de dados da pasta IDprodutos.json. 
 - Geração de uma tabela formatada de acordo com as suas descrições. 

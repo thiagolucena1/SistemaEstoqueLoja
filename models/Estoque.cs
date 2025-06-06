@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using gerenciamentoEstoque.models;
+using Newtonsoft.Json;
 
 namespace gerenciamentoEstoque.models
 {
@@ -18,8 +19,8 @@ namespace gerenciamentoEstoque.models
 
         public void AdicionarProdutoEstoque(Produto produto) //Esta função ira adicionar o produto em estoque após a instância do OBJETO. 
         {
-            
-                bool idExistente = produtos.Any(p => p.Id == produto.Id); // Esta expressão serve para verificar se o produto a ser adicionado contém id repetido. 
+
+            bool idExistente = produtos.Any(p => p.Id == produto.Id); // Esta expressão serve para verificar se o produto a ser adicionado contém id repetido. 
 
             if (idExistente) // Caso retorne TRUE, ou seja caso tenha ID repetido, o codigo retornara com um erro. 
             {
@@ -31,11 +32,17 @@ namespace gerenciamentoEstoque.models
 
             else
             {
+                string caminhoId = "IdsProducts/IDprodutos.json";
                 produtos.Add(produto);
                 Console.WriteLine("Produto adicionado com sucesso!");
+
+                string serial = JsonConvert.SerializeObject(produtos, Formatting.Indented);
+
+                File.WriteAllText( caminhoId, serial);
+
+
             }
-                
-            }
+        }
         
 
         public void ListaProdutosEstoque()
@@ -71,11 +78,12 @@ namespace gerenciamentoEstoque.models
                             break;
                         }
                     }
- 
+
                     if (produtoParaRemover != null)
                     {
                         produtos.Remove(produtoParaRemover);
                         Console.WriteLine("Produto removido com sucesso. ");
+                        
 
 
                     }

@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 1,
+    "Nome": " Logitech G305 Lightspeed",
+    "Descricao": "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição.",
+    "Preco": 234.99,
+    "Quantidade": 4
+  },
+  {
+    "Id": 2,
+    "Nome": "Carrinho",
+    "Descricao": "teste de descriao ",
+    "Preco": 21.0,
+    "Quantidade": 2
+  }
+]
