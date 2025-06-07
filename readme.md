@@ -12,6 +12,7 @@ Este projeto simula o dia a dia de um sistema de gerenciamento para lojas de var
 - Remoção via ID
 - Edição do nome e produto
 - Serialização das informações do produto em um codigo JSON. 
+- Console interativo para a execução das tarefas (Cadastrar, remover, listar e atualizar)
 
 
 ## Importante 

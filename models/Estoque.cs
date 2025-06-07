@@ -17,6 +17,11 @@ namespace gerenciamentoEstoque.models
             produtos = new List<Produto>();  // Criação da classe ESTOQUE do da lista do tipo Produtos da classe Produtos.cs
         }
 
+        public int ContarProdutos()
+        {
+            return produtos.Count;
+        }
+
         public void AdicionarProdutoEstoque(Produto produto) //Esta função ira adicionar o produto em estoque após a instância do OBJETO. 
         {
 
@@ -25,7 +30,7 @@ namespace gerenciamentoEstoque.models
             if (idExistente) // Caso retorne TRUE, ou seja caso tenha ID repetido, o codigo retornara com um erro. 
             {
 
-                Console.WriteLine($"Não é possivel cadastrar o produto ${produto.Nome} visto que o ID do mesmo ja se encontra registrado para outro produto.");
+                Console.WriteLine($"Não é possivel cadastrar o produto {produto.Nome} visto que o ID do mesmo ja se encontra registrado para outro produto.");
 
                 return;
             }
@@ -38,7 +43,7 @@ namespace gerenciamentoEstoque.models
 
                 string serial = JsonConvert.SerializeObject(produtos, Formatting.Indented);
 
-                File.WriteAllText( caminhoId, serial);
+                File.AppendAllText(caminhoId, serial); // Correção de codigo realizada, com o Append, o codigo sempre ira escrever após a ultima linha no arquivo JSON.
 
 
             }

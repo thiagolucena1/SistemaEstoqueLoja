@@ -2,7 +2,62 @@
 
 Estoque estoque = new Estoque();
 
-Produto p1 = new Produto(1, " Logitech G305 Lightspeed", "O G305 apresenta o sensor HERO de última geração com sensibilidade de 200 a 12.000 DPI para precisão de nível de competição.", 234.99M, 4);
-Produto p2 = new Produto(2, "Carrinho", "teste de descriao ", 21M, 2);
-estoque.AdicionarProdutoEstoque(p1);
-estoque.AdicionarProdutoEstoque(p2);
+        Console.WriteLine("Seja Bem vindo ao sistema de estoque.");
+        Console.WriteLine("1 - Adicionar um produto no estoque");
+
+        Console.WriteLine("2 - Remover um produto do estoque");
+
+        Console.WriteLine("3 - Listar produtos registrados ");
+
+        Console.WriteLine("4 - Atualizar dados de um produto em especifico");
+
+
+        int option = int.Parse(Console.ReadLine());
+
+
+        switch (option)
+        {
+            case 1:
+
+                Console.WriteLine("Escreva o nome do produto: ");
+                string nomeProduto = Console.ReadLine();
+
+                Console.WriteLine("Escreva a descrição do produto: ");
+                string descricaoProduto = Console.ReadLine();
+
+                Console.WriteLine("Escreva o preço do produto: ");
+                decimal precoProduto = decimal.Parse(Console.ReadLine());
+
+                Console.WriteLine("Escreva a quantidade disponíveis em estoque");
+                int quantidadeProduto = int.Parse(Console.ReadLine());
+
+                int novoID = estoque.ContarProdutos() + 1;
+
+                Produto novoProduto = new Produto(novoID, nomeProduto, descricaoProduto, precoProduto, quantidadeProduto);
+                estoque.AdicionarProdutoEstoque(novoProduto);
+                break;
+
+            case 2:
+
+                estoque.RemoverProduto();
+
+                break;
+            case 3:
+
+                estoque.ListaProdutosEstoque();
+
+                break;
+
+            case 4:
+
+                estoque.AtualizarDadosDosProdutos();
+
+                break;
+
+        }
+        
+
+
+    
+
+
