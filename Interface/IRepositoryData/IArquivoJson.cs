@@ -1,6 +1,9 @@
-﻿namespace EstoqueLojaV._0._2.Interface.IRepositoryData
+﻿using System.Runtime.CompilerServices;
+
+namespace EstoqueLojaV._0._2.Interface.IRepositoryData
 {
     public interface IArquivoJson
     {
+        
     }
 }

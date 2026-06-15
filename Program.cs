@@ -1,7 +1,31 @@
+using EstoqueLojaV._0._2.Business;
+using EstoqueLojaV._0._2.Data;
+using EstoqueLojaV._0._2.Interface.IBusinessInterfaces;
+using EstoqueLojaV._0._2.Interface.ILogOperacoesBusiness;
+using EstoqueLojaV._0._2.Interface.IRepositoryData;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddDbContext<LogOperacoesData>(options =>
+    options.UseSqlServer(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IProdutoEstoqueData, ProdutosEstoqueData>();
+builder.Services.AddScoped<IEstoqueBusiness, EstoqueBusiness>();
+builder.Services.AddScoped<ILogOperacoesBusiness, LogOperacoesBusiness>();
+
+builder.Services.AddHttpContextAccessor();
+
+
 
 var app = builder.Build();
 
