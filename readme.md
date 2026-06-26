@@ -40,3 +40,12 @@ EstoqueLojaV.0.2
 │   └── [Models]                # Entidades da aplicação
 └── 📁 Views
     └── [Views]                 # Telas da aplicação MVC
+
+
+## 📌 Changelog
+
+### V0.2 — 26/06/2025
+- Adicionado upload de arquivo via `_FormImportar` (Partial reutilizável)
+- Adição de controller para validação e importação.
+- JavaScript separado em `wwwroot/js/importar.js`
+- Suporte a importação de CSV, XLSX e JSON
