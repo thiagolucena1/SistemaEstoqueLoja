@@ -11,6 +11,5 @@
         public string Usuario { get; set; }
         public string UsuarioRole { get; set; } // <-- Propriedade Futura para armazenar o cargo do usuário por token, caso seja necessário para auditoria mais detalhada.
 
-        public int AcaoAudiotria { get; set; }
     }
 }
