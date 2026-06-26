@@ -9,7 +9,6 @@ namespace EstoqueLojaV._0._2.Business
         private readonly LogOperacoesData _logOperacoesData;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        // O .NET injeta isso automaticamente para você
         public LogOperacoesBusiness(IHttpContextAccessor httpContextAccessor, LogOperacoesData log)
         {
             _httpContextAccessor = httpContextAccessor;
