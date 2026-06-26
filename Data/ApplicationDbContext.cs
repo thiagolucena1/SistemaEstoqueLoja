@@ -24,6 +24,7 @@ namespace EstoqueLojaV._0._2.Data
                 entity.Property(e => e.IpUsuario).HasMaxLength(45).IsRequired();
                 entity.Property(e => e.Usuario).HasMaxLength(150);
                 entity.Property(e => e.UsuarioRole).HasMaxLength(100);
+               
 
                 entity.HasIndex(e => e.Horario);
             });

@@ -1,0 +1,17 @@
+﻿@model string 
+@* recebe o nome da action como parâmetro *@
+
+<form method="post"
+      asp-action="@Model"
+      asp-controller="Home"
+      enctype="multipart/form-data"
+      id="formImportar">
+
+    @Html.AntiForgeryToken()
+
+    <input type="file"
+           id="inputArquivo"
+           name="arquivo"
+           accept=".csv,.xlsx,.json"
+           style="display:none" />
+</form>

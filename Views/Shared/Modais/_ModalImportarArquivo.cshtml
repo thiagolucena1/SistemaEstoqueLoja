@@ -1,0 +1,28 @@
+﻿@model string
+
+@{
+    var inputId = $"inputArquivo_{Model}";  
+    var formId = $"form_{Model}";         
+}
+
+<form method="post"
+      asp-action="@Model"
+      asp-controller="Home"
+      enctype="multipart/form-data"
+      id="@formId">
+
+    @Html.AntiForgeryToken()
+
+    <input type="file"
+           id="@inputId"
+           name="arquivo"
+           accept=".csv,.xlsx,.json"
+           style="display:none" />
+</form>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        iniciarImportar("@inputId", "@formId");
+    });
+</script>

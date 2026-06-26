@@ -1,0 +1,120 @@
+﻿@model EstoqueLojaV._0._2.Models.AcountModel.LoginModel
+
+@{
+    ViewData["Title"] = "Efetue o login para seguir";
+}
+
+<!-- Estilos customizados em tom azul moderno -->
+<style>
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .login-card {
+        background-color: #ffffff;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(13, 110, 253, 0.15);
+        width: 100%;
+        max-width: 400px;
+        border-top: 5px solid #0d6efd; /* Linha azul no topo */
+    }
+
+    .login-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .login-header h2 {
+        color: #0b3d91;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .login-header p {
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #495057;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        border: 1.5px solid #ced4da;
+        border-radius: 8px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        box-sizing: border-box;
+    }
+
+    .form-control:focus {
+        border-color: #0d6efd;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 0.75rem;
+        background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+        margin-top: 1rem;
+    }
+
+    .btn-login:hover {
+        background: linear-gradient(135deg, #0b5ed7, #0a58ca);
+    }
+
+    .btn-login:active {
+        transform: scale(0.98);
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-card">
+
+        <div class="login-header">
+            <h2>Estoque Loja</h2>
+            <p>Seja bem-vindo! Faça login para continuar.</p>
+        </div>
+
+        <!-- Corrigido o pequeno erro de digitação do 'asp-asp-controller' para 'asp-controller' -->
+        <form asp-controller="Account" asp-action="Login" method="post">
+
+            <div class="form-group">
+                <label asp-for="Username">E-mail ou Usuário</label>
+                <input asp-for="Username" class="form-control" placeholder="Digite seu e-mail" required />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Senha">Senha</label>
+                <input asp-for="Senha" type="password" class="form-control" placeholder="Digite sua senha" required />
+            </div>
+
+            <button type="submit" class="btn-login">Entrar</button>
+
+        </form>
+
+    </div>
+</div>
