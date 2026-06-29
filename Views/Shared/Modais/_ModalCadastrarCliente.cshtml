@@ -19,14 +19,15 @@
 
             <div class="modal-body">
 
-                <form asp-action="CriarClientesModal" method="post">
+                <form  id="FormularioCliente"
+                    asp-action="CriarClientesModal" method="post">
 
                     <div class="mb-3">
                         <label for="Nome">Nome</label>
                         <input type="text"
-                               id="Nome"
+                               id="NomeClienteCadastro"
                                name="Nome"
-                               class="form-control" />
+                               class="form-control" onblur="atualizarFormulario()" />
                     </div>
 
                     <div class="mb-3">
@@ -36,7 +37,7 @@
                                name="CpfCnpj"
                                class="form-control"
                                maxlength="18"
-                               placeholder="000.000.000-00 ou 00.000.000/0000-00" />
+                               placeholder="000.000.000-00 ou 00.000.000/0000-00" onblur="atualizarFormulario()" />
                     </div>
 
                     <div class="mb-3">
@@ -45,8 +46,7 @@
                                id="Email"
                                name="Email"
                                class="form-control"
-                               placeholder="exemplo@email.com" />
-                    </div>
+                               placeholder="exemplo@email.com" onblur="atualizarFormulario()"
 
                     <div class="mb-3">
                         <label for="Telefone">Telefone</label>
@@ -55,11 +55,11 @@
                                name="Telefone"
                                class="form-control"
                                maxlength="15"
-                               placeholder="(00) 00000-0000" />
+                                   placeholder="(00) 00000-0000" onblur="atualizarFormulario()" />
                     </div>
 
                     <button type="submit"
-                            class="btn btn-success">
+                            class="btn btn-success" disabled>
                         Salvar
                     </button>
 
@@ -70,3 +70,4 @@
         </div>
     </div>
 </div>
+<script src="~/js/Cliente/validacoesCliente.js"></script>

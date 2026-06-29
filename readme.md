@@ -49,3 +49,7 @@ EstoqueLojaV.0.2
 - Adição de controller para validação e importação.
 - JavaScript separado em `wwwroot/js/importar.js`
 - Suporte a importação de CSV, XLSX e JSON
+
+### V0.2 — 29/06/2025
+- Adição de validação de cadastro de clientes via js 
+
