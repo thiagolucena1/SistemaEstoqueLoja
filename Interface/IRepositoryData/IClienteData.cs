@@ -12,5 +12,6 @@ namespace EstoqueLojaV._0._2.Interface.IRepositoryData
 
         void AtualizarCliente(Cliente cliente);
 
+        bool ExcluirCliente(int id);
     }
 }

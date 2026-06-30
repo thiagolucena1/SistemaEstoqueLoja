@@ -53,5 +53,24 @@ namespace EstoqueLojaV._0._2.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+
+        [HttpPost]
+        public IActionResult Excluir(int idcliente)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction(nameof(Index));
+
+            }
+            else if (idcliente > 0) {
+
+                _clienteBusiness.ExcluirCliente(idcliente);
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }

@@ -64,5 +64,25 @@ namespace EstoqueLojaV._0._2.Data.ClienteData
             }
 
         }
+
+        public bool ExcluirCliente(int id)
+        {
+
+
+            Cliente RegistroExcluir = new Cliente { Id = id };
+
+            try
+            {
+                
+                _context.Clientes.Remove(RegistroExcluir);
+                _context.SaveChanges();
+
+                return true; 
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

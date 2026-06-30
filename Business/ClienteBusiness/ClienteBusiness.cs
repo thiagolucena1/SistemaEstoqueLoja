@@ -49,5 +49,9 @@ namespace EstoqueLojaV._0._2.Business.ClienteBusiness
             _clienteData.AtualizarCliente(Cliente);
         }
 
+        public bool ExcluirCliente(int id)
+        {
+            return _clienteData.ExcluirCliente(id);
+            }
     }
 }

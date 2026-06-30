@@ -14,6 +14,8 @@ namespace EstoqueLojaV._0._2.Interface.IBusinessInterfaces
 
         void AtualizarCliente(ClienteEditarDTO cliente);
 
+        bool ExcluirCliente(int id);
+
 
 
     }
