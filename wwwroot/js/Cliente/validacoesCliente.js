@@ -46,6 +46,38 @@ function validarCPF() {
     return digitoVerificador1 === parseInt(cpf[9]) && digitoVerificador2 === parseInt(cpf[10]);
 }
 
+//Função validarCNPJ possui compatibilidade com valores alfanumericos.
+function validarCNPJ() {
+    var inputCPNJ = document.getElementById("CpfCnpj");
+    if (!inputCPNJ) return false;
+
+    var cnpj = inputCPNJ.value.toString().toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+    if (cnpj.length !== 14) return false;
+
+    if (!/^[A-Z0-9]{12}[0-9]{2}$/.test(cnpj)) return false;
+
+    if (cnpj === "00000000000000") return false;
+
+    const pesos = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    let somaDV1 = 0;
+    let somaDV2 = 0;
+
+    for (let i = 0; i < 12; i++) {
+        const valorCaractere = cnpj.charCodeAt(i) - 48;
+        somaDV1 += valorCaractere * pesos[i + 1];
+        somaDV2 += valorCaractere * pesos[i];
+    }
+
+    const dv1 = (somaDV1 % 11) < 2 ? 0 : 11 - (somaDV1 % 11);
+    somaDV2 += dv1 * pesos[12];
+
+    const dv2 = (somaDV2 % 11) < 2 ? 0 : 11 - (somaDV2 % 11);
+    const dvCalculado = `${dv1}${dv2}`;
+
+    return cnpj.slice(-2) === dvCalculado;
+}
+
 function validarNome() {
     var inputNome = document.getElementById("NomeClienteCadastro");
     if (!inputNome || !inputNome.value.trim()) return false;
@@ -78,6 +110,7 @@ function validarEmail(email) {
 }
 
 
+
 function atualizarFormulario() {
 
     var inputCpf = document.getElementById("CpfCnpj");
@@ -88,7 +121,15 @@ function atualizarFormulario() {
     var formulario = document.getElementById("FormularioCliente");
     var botaoSubmit = formulario.querySelector("button[type='submit']");
 
-    var cpfValido = validarCPF();
+    var cpfValido = false;
+
+    var valorLimpo = inputCpf.value.replace(/[^A-Z0-9]/gi, '').trim();
+
+    if (valorLimpo.length === 11) {
+        cpfValido = validarCPF();
+    } else if (valorLimpo.length === 14){
+        cpfValido = validarCNPJ();
+    }
     var nomeValido = validarNome();
     var telefoneValido = validarTelefone(inputTelefone.value);
     var emailValido = validarEmail(inputEmail.value);

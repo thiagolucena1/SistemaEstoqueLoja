@@ -52,4 +52,5 @@ EstoqueLojaV.0.2
 
 ### V0.2 — 29/06/2025
 - Adição de validação de cadastro de clientes via js 
+- Compatabilidade de registro de CPNJS Alfanumericos, conforme nova lei;
 
