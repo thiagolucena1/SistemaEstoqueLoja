@@ -50,13 +50,15 @@ function validarNome() {
     var inputNome = document.getElementById("NomeClienteCadastro");
     if (!inputNome || !inputNome.value.trim()) return false;
 
+    if (inputNome.value.trim().length <= 1) return false; 
+
     var Nome = inputNome.value;
 
-    // Sua regex excelente de proteção contra números e caracteres suspeitos
+
     const caracteresInvalidos = /\d|&&|\|\||;|--|'|"/;
     var possuiInvalido = caracteresInvalidos.test(Nome);
 
-    return !possuiInvalido; // Retorna true se NÃO possuir inválidos
+    return !possuiInvalido; 
 }
 
 function validarTelefone(telefone) {
@@ -91,10 +93,10 @@ function atualizarFormulario() {
     var telefoneValido = validarTelefone(inputTelefone.value);
     var emailValido = validarEmail(inputEmail.value);
 
-    aplicarEstiloCampo(inputCpf, cpfValido);
-    aplicarEstiloCampo(inputNome, nomeValido);
-    aplicarEstiloCampo(inputTelefone, telefoneValido);
-    aplicarEstiloCampo(inputEmail, emailValido);
+    if (inputCpf.value.trim() != "") aplicarEstiloCampo(inputCpf, cpfValido);
+    if (inputNome.value.trim() != "") aplicarEstiloCampo(inputNome, nomeValido);
+    if (inputTelefone.value.trim() != "") aplicarEstiloCampo(inputTelefone, telefoneValido);
+    if (inputEmail.value.trim() != "") aplicarEstiloCampo(inputEmail, emailValido);
 
     if (cpfValido && nomeValido && telefoneValido && emailValido) {
         botaoSubmit.removeAttribute("disabled");
