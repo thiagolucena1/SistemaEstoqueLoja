@@ -54,3 +54,8 @@ EstoqueLojaV.0.2
 - Adição de validação de cadastro de clientes via js 
 - Compatabilidade de registro de CPNJS Alfanumericos, conforme nova lei;
 
+### V0.2 — 30/06/2025
+- Adicionado ferramenta Automapper para automizar mapeamento de DTOs para entidades e vice-versa. (Baixado o autommaper 12.0.1 , pois estava sofrendo problemas de compatibilidade com a versão 16.1.1)
+- Em  tela-Cliente adicionado validação de cpnjs alfanumericos.
+- Implementado função de editar fornecedor (Cliente)  via modal chamado por ajax sem carregar a pagina.
+- Adição de pasta DTO para objetos que serão editados.

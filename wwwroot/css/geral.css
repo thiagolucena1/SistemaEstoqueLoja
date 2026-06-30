@@ -1,0 +1,16 @@
+﻿/* Altera a opacidade e a cor do placeholder para todas as variações de navegadores */
+.placeholder-suave::placeholder {
+    color: #6c757d; /* Uma cor cinza neutra (padrão do Bootstrap) */
+    opacity: 0.4; /* Diminui a opacidade (0.1 é quase invisível, 1.0 é totalmente visível) */
+}
+
+/* Garante compatibilidade com o Internet Explorer antigo (opcional) */
+.placeholder-suave:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 0.4;
+}
+
+.placeholder-suave::-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 0.4;
+}

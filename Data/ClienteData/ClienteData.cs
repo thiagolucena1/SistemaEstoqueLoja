@@ -1,6 +1,7 @@
 ﻿using EstoqueLojaV._0._2.Interface.IRepositoryData;
 using EstoqueLojaV._0._2.Models;
 using EstoqueLojaV._0._2.Models.ClientesEntites;
+using EstoqueLojaV._0._2.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 using System.Data.SqlTypes;
 
@@ -39,6 +40,29 @@ namespace EstoqueLojaV._0._2.Data.ClienteData
         {
             IList<Cliente> clientes = _context.Clientes.ToList();
             return clientes;
+        }
+
+        public Cliente ClienteUnico(int id)
+        {
+            return _context.Clientes.FirstOrDefault(c => c.Id == id);
+        }
+
+        public void AtualizarCliente(Cliente cliente)
+        {
+            try { 
+
+            if (cliente is not null)
+            {
+
+                _context.Clientes.Update(cliente);
+                _context.SaveChanges();
+            }
+            }
+            catch (SqlTypeException ex)
+            {
+                ex.ToString();
+            }
+
         }
     }
 }

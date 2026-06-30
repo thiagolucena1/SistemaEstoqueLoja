@@ -2,6 +2,7 @@
 using EstoqueLojaV._0._2.Interface.IBusinessInterfaces;
 using EstoqueLojaV._0._2.Models;
 using EstoqueLojaV._0._2.Models.ClientesEntites;
+using EstoqueLojaV._0._2.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EstoqueLojaV._0._2.Controllers
@@ -30,5 +31,27 @@ namespace EstoqueLojaV._0._2.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var cliente = _clienteBusiness.ClienteUnico(id);
+
+            return PartialView("~/Views/Shared/Modais/_ModalEditarCliente.cshtml", cliente);
+        }
+
+
+        [HttpPost]
+
+        public IActionResult Edit(ClienteEditarDTO clienteDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction(nameof(Index));
+
+            }
+            _clienteBusiness.AtualizarCliente(clienteDto);
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }

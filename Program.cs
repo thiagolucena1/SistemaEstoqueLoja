@@ -1,3 +1,4 @@
+using AutoMapper;
 using EstoqueLojaV._0._2.Business;
 using EstoqueLojaV._0._2.Business.ClienteBusiness;
 using EstoqueLojaV._0._2.Data;
@@ -18,7 +19,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDbContext<LogOperacoesData>(options =>
     options.UseSqlServer(connectionString));
 
-// Add services to the container.
+#region Ferramentas 
+builder.Services.AddAutoMapper(typeof(Program));
+
+#endregion
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IProdutoEstoqueData, ProdutosEstoqueData>();
