@@ -2,32 +2,26 @@
      id="modalCadastrarCliente"
      tabindex="-1"
      aria-hidden="true">
-
     <div class="modal-dialog">
         <div class="modal-content">
-
             <div class="modal-header">
                 <h5 class="modal-title">
                     Cadastro de Cliente
                 </h5>
-
                 <button type="button"
                         class="btn-close"
                         data-bs-dismiss="modal">
                 </button>
             </div>
-
             <div class="modal-body">
-
-                <form  id="FormularioCliente"
-                    asp-action="CriarClientesModal" method="post">
-
+                <form id="FormularioCliente"
+                      asp-action="CriarClientesModal" method="post">
                     <div class="mb-3">
                         <label for="Nome">Nome</label>
                         <input type="text"
                                id="NomeClienteCadastro"
                                name="Nome"
-                               class="form-control" onblur="atualizarFormulario()" />
+                               class="form-control campo-nome" onblur="atualizarFormulario(this.form)" />
                     </div>
 
                     <div class="mb-3">
@@ -35,9 +29,9 @@
                         <input type="text"
                                id="CpfCnpj"
                                name="CpfCnpj"
-                               class="form-control"
+                               class="form-control campo-cpf-cnpj"
                                maxlength="18"
-                               placeholder="000.000.000-00 ou 00.000.000/0000-00" onblur="atualizarFormulario()" />
+                               placeholder="000.000.000-00 ou 00.000.000/0000-00" onblur="atualizarFormulario(this.form)" />
                     </div>
 
                     <div class="mb-3">
@@ -45,28 +39,25 @@
                         <input type="email"
                                id="Email"
                                name="Email"
-                               class="form-control"
-                               placeholder="exemplo@email.com" onblur="atualizarFormulario()"
-
+                               class="form-control campo-email"
+                               placeholder="exemplo@email.com" onblur="atualizarFormulario(this.form)" />
+                    </div>
                     <div class="mb-3">
                         <label for="Telefone">Telefone</label>
                         <input type="text"
                                id="Telefone"
                                name="Telefone"
-                               class="form-control"
+                               class="form-control campo-telefone"
                                maxlength="15"
-                                   placeholder="(00) 00000-0000" onblur="atualizarFormulario()" />
+                               placeholder="(00) 00000-0000" onblur="atualizarFormulario(this.form)" />
                     </div>
 
                     <button type="submit"
                             class="btn btn-success" disabled>
                         Salvar
                     </button>
-
                 </form>
-
             </div>
-
         </div>
     </div>
 </div>

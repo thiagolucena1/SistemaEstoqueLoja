@@ -1,6 +1,5 @@
-﻿
-function validarCPF() {
-    var inputCpf = document.getElementById("CpfCnpj");
+﻿function validarCPF(form) {
+    var inputCpf = form.querySelector(".campo-cpf-cnpj");
     if (!inputCpf || !inputCpf.value) return false;
 
     var cpf = inputCpf.value.replace(/[^\d]+/g, '');
@@ -47,8 +46,8 @@ function validarCPF() {
 }
 
 //Função validarCNPJ possui compatibilidade com valores alfanumericos.
-function validarCNPJ() {
-    var inputCPNJ = document.getElementById("CpfCnpj");
+function validarCNPJ(form) {
+    var inputCPNJ = form.querySelector(".campo-cpf-cnpj");
     if (!inputCPNJ) return false;
 
     var cnpj = inputCPNJ.value.toString().toUpperCase().replace(/[^A-Z0-9]/g, '');
@@ -78,11 +77,11 @@ function validarCNPJ() {
     return cnpj.slice(-2) === dvCalculado;
 }
 
-function validarNome() {
-    var inputNome = document.getElementById("NomeClienteCadastro");
+function validarNome(form) {
+    var inputNome = form.querySelector(".campo-nome");
     if (!inputNome || !inputNome.value.trim()) return false;
 
-    if (inputNome.value.trim().length <= 1) return false; 
+    if (inputNome.value.trim().length <= 1) return false;
 
     var Nome = inputNome.value;
 
@@ -90,7 +89,7 @@ function validarNome() {
     const caracteresInvalidos = /\d|&&|\|\||;|--|'|"/;
     var possuiInvalido = caracteresInvalidos.test(Nome);
 
-    return !possuiInvalido; 
+    return !possuiInvalido;
 }
 
 function validarTelefone(telefone) {
@@ -111,14 +110,14 @@ function validarEmail(email) {
 
 
 
-function atualizarFormulario() {
+function atualizarFormulario(form) {
 
-    var inputCpf = document.getElementById("CpfCnpj");
-    var inputNome = document.getElementById("NomeClienteCadastro");
-    var inputTelefone = document.getElementById("Telefone");
-    var inputEmail = document.getElementById("Email");
+    var inputCpf = form.querySelector(".campo-cpf-cnpj");
+    var inputNome = form.querySelector(".campo-nome");
+    var inputTelefone = form.querySelector(".campo-telefone");
+    var inputEmail = form.querySelector(".campo-email");
 
-    var formulario = document.getElementById("FormularioCliente");
+    var formulario = form;
     var botaoSubmit = formulario.querySelector("button[type='submit']");
 
     var cpfValido = false;
@@ -126,11 +125,11 @@ function atualizarFormulario() {
     var valorLimpo = inputCpf.value.replace(/[^A-Z0-9]/gi, '').trim();
 
     if (valorLimpo.length === 11) {
-        cpfValido = validarCPF();
-    } else if (valorLimpo.length === 14){
-        cpfValido = validarCNPJ();
+        cpfValido = validarCPF(form);
+    } else if (valorLimpo.length === 14) {
+        cpfValido = validarCNPJ(form);
     }
-    var nomeValido = validarNome();
+    var nomeValido = validarNome(form);
     var telefoneValido = validarTelefone(inputTelefone.value);
     var emailValido = validarEmail(inputEmail.value);
 
