@@ -5,13 +5,13 @@ namespace EstoqueLojaV._0._2.Interface.IRepositoryData
 {
     public interface IClienteData
     {
-        void AdicionarCliente(Cliente cliente);
+        int AdicionarCliente(Cliente cliente);
         IList<Cliente> ListarClientes();
 
         Cliente ClienteUnico(int id);
 
         void AtualizarCliente(Cliente cliente);
 
-        bool ExcluirCliente(int id);
+        int ExcluirCliente(int id);
     }
 }

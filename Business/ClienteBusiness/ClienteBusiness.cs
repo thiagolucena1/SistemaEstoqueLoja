@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using EstoqueLojaV._0._2.Interface.IBusinessInterfaces;
+using EstoqueLojaV._0._2.Interface.ILogOperacoesBusiness;
 using EstoqueLojaV._0._2.Interface.IRepositoryData;
 using EstoqueLojaV._0._2.Models.ClientesEntites;
 using EstoqueLojaV._0._2.Models.DTO;
+using EstoqueLojaV._0._2.Models.EnumTypes;
 
 namespace EstoqueLojaV._0._2.Business.ClienteBusiness
 {
@@ -10,8 +12,10 @@ namespace EstoqueLojaV._0._2.Business.ClienteBusiness
     {
         private readonly IClienteData _clienteData;
         private readonly IMapper _mapper;
-        public ClienteBusiness(IClienteData clienteData, IMapper mapper)
+        private readonly ILogOperacoesBusiness _logger;
+        public ClienteBusiness(IClienteData clienteData, IMapper mapper, ILogOperacoesBusiness log)
         {
+            _logger = log;
             _clienteData = clienteData;
             _mapper = mapper;
         }
@@ -20,7 +24,8 @@ namespace EstoqueLojaV._0._2.Business.ClienteBusiness
         {
             try
             {
-                _clienteData.AdicionarCliente(entidade);
+                var id = _clienteData.AdicionarCliente(entidade);
+                _logger.RegistrarLog(AcaoAuditoriaLogEnum.Criar.ToString(), TabelasEnum.Clientes.ToString(), id, null, null);
 
                 return true;
             }
@@ -44,14 +49,36 @@ namespace EstoqueLojaV._0._2.Business.ClienteBusiness
 
         public void AtualizarCliente(ClienteEditarDTO cliente)
         {
-            var Cliente = _mapper.Map<Cliente>(cliente);
+            try
+            {
+                var Cliente = _mapper.Map<Cliente>(cliente);
 
-            _clienteData.AtualizarCliente(Cliente);
-        }
+                _clienteData.AtualizarCliente(Cliente);
+                _logger.RegistrarLog(AcaoAuditoriaLogEnum.Atualizar.ToString(), TabelasEnum.Clientes.ToString(), Cliente.Id, null, null);
+            } catch (Exception ex)
+            {
+                _logger.RegistrarLog(AcaoAuditoriaLogEnum.Falha.ToString(), TabelasEnum.Clientes.ToString(), 0, null, null);
+
+            } }
 
         public bool ExcluirCliente(int id)
         {
-            return _clienteData.ExcluirCliente(id);
+            try
+            {
+
+                var retorno = _clienteData.ExcluirCliente(id);
+                _logger.RegistrarLog(AcaoAuditoriaLogEnum.Deletar.ToString(), TabelasEnum.Clientes.ToString(), retorno, null, null);
+
+                return true;
+
             }
+            catch (Exception ex)
+            {
+
+                _logger.RegistrarLog(AcaoAuditoriaLogEnum.Falha.ToString(), TabelasEnum.Clientes.ToString(), 0, null, null);
+                return false;
+
+            }
+        }
     }
 }

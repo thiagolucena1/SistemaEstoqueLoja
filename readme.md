@@ -59,3 +59,7 @@ EstoqueLojaV.0.2
 - Em  tela-Cliente adicionado validação de cpnjs alfanumericos.
 - Implementado função de editar fornecedor (Cliente)  via modal chamado por ajax sem carregar a pagina.
 - Adição de pasta DTO para objetos que serão editados.
+- Agora podemos excluir entidades do banco de dados apenas clicando em excluir.
+- Alterado formato de validações em js, antes ele selecionava por meio de IDS, nesta atualização ele vai receber um form. Podendo expandir em outros arquivos, 
+desde que eles tenham o mesmo class para a validação condizente as regras de negocio.
+Exemplo: A partialView Editar (É um pedaço do codigo) vai reutilizar o script de validação de cnpj, nome, telefone da partialView de criar, pois compartilham a mesma regra de negocio.

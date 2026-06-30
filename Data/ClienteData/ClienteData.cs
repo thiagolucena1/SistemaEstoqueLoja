@@ -18,7 +18,7 @@ namespace EstoqueLojaV._0._2.Data.ClienteData
 
        
 
-        public void AdicionarCliente(Cliente cliente)
+        public int AdicionarCliente(Cliente cliente)
         {
             if (cliente is not null)
             {
@@ -26,14 +26,18 @@ namespace EstoqueLojaV._0._2.Data.ClienteData
                 {
                     _context.Clientes.Add(cliente);
                     _context.SaveChanges();
+
+                    return cliente.Id;
                     }
 
                 catch (SqlTypeException ex)
                 {
                     ex.ToString();
                 }
-            }
 
+                
+            }
+            return 0;
         }
 
         public IList<Cliente> ListarClientes()
@@ -56,16 +60,20 @@ namespace EstoqueLojaV._0._2.Data.ClienteData
 
                 _context.Clientes.Update(cliente);
                 _context.SaveChanges();
+                
             }
             }
             catch (SqlTypeException ex)
             {
-                ex.ToString();
+                throw ex;
+                
             }
+
+            
 
         }
 
-        public bool ExcluirCliente(int id)
+        public int ExcluirCliente(int id)
         {
 
 
@@ -77,7 +85,7 @@ namespace EstoqueLojaV._0._2.Data.ClienteData
                 _context.Clientes.Remove(RegistroExcluir);
                 _context.SaveChanges();
 
-                return true; 
+                return RegistroExcluir.Id;
             }
             catch(Exception ex)
             {
