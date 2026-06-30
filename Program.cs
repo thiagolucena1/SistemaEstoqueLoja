@@ -1,5 +1,8 @@
+using AutoMapper;
 using EstoqueLojaV._0._2.Business;
+using EstoqueLojaV._0._2.Business.ClienteBusiness;
 using EstoqueLojaV._0._2.Data;
+using EstoqueLojaV._0._2.Data.ClienteData;
 using EstoqueLojaV._0._2.Interface.IBusinessInterfaces;
 using EstoqueLojaV._0._2.Interface.ILogOperacoesBusiness;
 using EstoqueLojaV._0._2.Interface.IRepositoryData;
@@ -16,11 +19,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDbContext<LogOperacoesData>(options =>
     options.UseSqlServer(connectionString));
 
-// Add services to the container.
+#region Ferramentas 
+builder.Services.AddAutoMapper(typeof(Program));
+
+#endregion
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IProdutoEstoqueData, ProdutosEstoqueData>();
+builder.Services.AddScoped<IClienteData, ClienteData>();
 builder.Services.AddScoped<IEstoqueBusiness, EstoqueBusiness>();
+builder.Services.AddScoped<IClienteBusiness, ClienteBusiness>();
 builder.Services.AddScoped<ILogOperacoesBusiness, LogOperacoesBusiness>();
 
 builder.Services.AddHttpContextAccessor();

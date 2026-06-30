@@ -12,5 +12,7 @@ namespace EstoqueLojaV._0._2.Models.EnumTypes
 
         [Description("Login")]
         Login = 5,
+
+        Falha = 6
     }
 }

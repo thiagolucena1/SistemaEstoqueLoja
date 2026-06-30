@@ -2,6 +2,6 @@
 {
     public interface ILogOperacoesBusiness
     {
-        void RegistrarLog(string acao, string entidade, int entidadeId, string usuario, string usuarioRole);
+        void RegistrarLog(string acao, string entidade, int entidadeId, string? usuario, string? usuarioRole);
     }
 }
